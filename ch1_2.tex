@@ -1,0 +1,183 @@
+\documentclass{article} 
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts} 
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{array}
+\title{Linear Algebra Done Right}
+\author{Wafik Aboualim}
+\begin{document}
+\maketitle
+\section*{EXERCISES 1.B}
+\begin{enumerate}
+\item 
+\item We will have to consider cases: 1- $a \neq 0$ \; 2- $a = 0$. In the first case :
+\begin{equation*}
+a \bm{v} = \bm{0} \implies a \bm{v} = a\bm{v} + -a\bm{v} = a(\bm{v} + \bm{-v}) \; \text{(lemma 1.31)}
+\end{equation*}
+dividing both sides by a (since a is non-zero):
+\begin{equation*}
+\bm{v} = \bm{0}
+\end{equation*}
+The second case follows from lemma 1.29.
+
+\item The additive identity property.
+\item We start by assuming the additive inverse postulate in 1.19, consider the quantity $0\bm{v}$:
+\begin{equation}
+0\bm{v} = (0 + 0)\bm{v} = 0\bm{v} + 0\bm{v}
+\end{equation}  
+our assumption in (1.19) ensures that for every element in $\bm{V}$ there exists an additive inverse. denote the inverse of $0\bm{v}$ as $0\bm{w}$. Adding $0\bm{w}$ to both sides in (1):
+\begin{equation}
+0\bm{v} + 0\bm{w} =  0\bm{v} + 0\bm{v} + 0\bm{w} \implies \bm{0} = 0\bm{v} + \bm{0} = 0\bm{v}\; (1.19)
+\end{equation}  
+Now we change our starting assumption to be $0\bm{v}$ $= \bm{0}$ for all $\bm{v} \in \bm{V}$. Consider the quantity $\bm{v} + \bm{w}$, where $\bm{w}$ is the additive inverse of $\bm{v}$: 
+\begin{equation*}
+\bm{v} + \bm{w} = \bm{v} + (-1)\bm{v} \; (1.31) = (1+-1)\bm{v} \; (1.19) = 0\bm{v} = \bm{0} \;  \forall \bm{v} \in \bm{V} 
+\end{equation*}
+
+\item Commuatitivity is not fully satisfied: $(-\infty) + \infty = 0$ is not given. Associativity is not fully satisfied. Consider the following counter example:
+\begin{equation*}
+\infty + (-\infty) = (\infty + \infty) + (-\infty) = \infty + (\infty + (-\infty)) = \infty + 0 = \infty \neq 0
+\end{equation*} 
+Thus $\mathbb{R} \cup \{\infty\} \cup \{-\infty\}$ is not a vector space.
+\end{enumerate}
+\section*{EXERCISES 1.C}
+\begin{enumerate}
+\item 
+\item 
+\begin{enumerate}
+\item[e-] Denote the set of all complex sequences with limit 0 by $\bm{V}$. Then we define the sum of two sequences $\{a_{n}\}, \{b_{n} \}$ as:
+\begin{equation*}
+\{a_{n}\} + \{b_{n} \} = \{ a_{n}+b_{n} \} \text{\;for each $n$}
+\end{equation*}
+We first start by checking the existence of the additive identity. Consider the sequence $\{c_{n}\}= \{0,0,....\}$ which trivially converges to 0, thus exists in $\bm{V}$.
+\begin{equation*}
+\{c_{n}\} + \{ a_{n}\} = \{0 + a_{n}\} = \{ a_{n}\}
+\end{equation*}
+We then check closure on addition and scalar multiplication. Let $\{a_{n}\}, \{b_{n}\}$ be both elements of $\bm{V}$. $\bm{V}$ is closed if and only if $k \left(\{a_{n}\} + \{b_{n}\} \right) \in \bm{V}$  , $k \in F$. 
+\begin{equation*}
+\lim k \left(\{a_{n}\} + \{b_{n}\} \right) = k \lim \{ a_{n}\} + k \lim \{ b_{n}\} = k 0 + k 0 = 0
+\end{equation*}
+\end{enumerate} 
+\item Denote the differentiable real valued function on the interval $(-4,4)$ such that $f'(-1) = 3f(2)$ by $\bm{V}$. Define addition of two functions $f, g$ as follows:
+\begin{equation*}
+(f+g)(x) = f(x) + g(x) 
+\end{equation*}
+Firstly we check the existence of additive identity. Consider the function $f(x) = 0$:
+\begin{equation*}
+f'(x) = 3f(2) = 0 \implies f(x) \in \bm{V}
+\end{equation*}
+Now we check closure. Let $f,g$ be two elements of $\bm{V}$. $\bm{V}$ is closed if and only if $k(f+g)(x) \in \bm{V}$
+\begin{equation*}
+\frac{d}{dx} k(f+g)(-1) = kf'(-1) + kg'(-1)= 3kf(2) + 3kg(2) = 3\left(k(f+g)(2)\right)
+\end{equation*}
+Note that the sum of two differentiable function is differentiable. Thus $V$ is indeed a subspace of $\bm{R^{(-4,4)}}$.
+\item $\bm{V} = \{ (a,b): \text{a,b are even} \}$
+\item $\bm{V} =  \{ (a,b): a=0 \lor b=0 \}$
+\item 
+\item Since both $U_{1},U_{2}$ are subspaces of $\bm{V}$, they both contain the additive identity $\{ \bm{0} \}$. It follows that $\{ \bm{0}\} \in U_{1} \cap U_{2}$. Considering any two elements in $U_{1} \cap U_{2}$, it is trivial that their sum or their multiples also exist in the intersection. Hence $U_{1} \cap U_{2}$ closed under addition and scalar multiplication, and thus a subspace of $\bm{V}$.
+\item Following from the previous exercises, the additive identity must exist in any subspace of $\bm{V}$, and thus exist in all the possible subspaces of $\bm{V}$. Moreover, it is easy to see that if any collection of elements exist in the intersection, so does their sum and scalar multiples. Hence their intersection is closed, and thus a subspace of $\bm{V}$.
+
+\item[12] The existence of the additive identity is trivial, thus we are only concerned about closure.
+\begin{proof} \; \\
+($\Rightarrow$)
+For the sake of contradiction, let $U_{1}, U_{2}$ be two subspaces of a vector space $\bm{V}$ such that $U_{1} \cap U_{2} = \{ \bm{0} \}$. let $\bm{u_{1}}$, $\bm{u_{2}}$ be any two non-zero vectors in $U_{1},U_{2}$ respectively. $\bm{u_{1}}$, $\bm{u_{2}}$ both exist in $U_{1} \cup U_{2}$. However, $\bm{u_{1}}$ + $\bm{u_{2}}$ does not exist in $U_{1} \cup U_{2}$ since it doesn't exist in neither $U_{1}$ or $U_{2}$. Hence closure is not satisfied ($\bot$). \\
+($\Leftarrow$) Let $U_{1}, U_{2}$ be two subspaces of $\bm{V}$ such that $U_{1} \subseteq U_{2}$. let $\bm{u_{1}},\bm{u_{2}}$ be any two vectors in $U_{1}, U_{2}$ respectively. It is easy to see that $\bm{u_{1}} \in U_{2}$. Now, consider the quantity $k$($\bm{u_{1}}$ + $\bm{u_{2}}$). Since $U_{2}$ is a subspace of $\bm{V}$ and both $\bm{u_{1}}$ and $\bm{u_{2}}$ are contained in $U_{2}$, $k$($\bm{u_{1}}$ + $\bm{u_{2}}$) is also contained in $U_{2}$. It follows that $k$($\bm{u_{1}}$ + $\bm{u_{2}})\in U_{1} \cup U_{2}$. The same goes if $\bm{u_{1}, u_{2}}$ are both contained in $U_{1}$ or $U_{2}$. Hence $U_{1} \cup U_{2}$ is a subspace of $\bm{V}$.
+\end{proof}
+\item[13]
+
+Let $U_{1},U_{2},U_{3}$ be all subspaces of $\bm{V}$, such that $U_{1},U_{2},U_{3} \neq \{ \bm{0} \}$. We want to prove that $U_{1} \cup U_{2} \cup U_{3}$ is a subspace of $\bm{V}$ if and only if $U_{1} \subseteq U_{3}$ and $U_{2} \subseteq U_{3} $. \begin{proof} \;
+\\ ($\Rightarrow$) \\
+For the sake of contradiction Let $U_{1} \cup U_{2} \cup U_{3}$ be a subspace of $\bm{V}$. We'll consider two cases: 1-\;$U_{2} \subseteq U_{3}$ and $U_{1} \not \subset U_{3} $ \; 2-\; $U_{1} \cap U_{2} \cap U_{3} = \{ \bm{0} \}$. In the first case: let $u_{1}$ be any non-zero element of $U_{1}$ such that $u_{1} \notin U_{3} $. Let $u_{3}$ be any non-zero element of $U_{3}$. Since $U_{1} \cup U_{2} \cup U_{3}$ is a subspace of $\bm{V}$. Closure implies that $k(u_{1}+u_{3})$ exists in the subspace, where $k \in F$. Consider the vector $k(u_{1}+u_{3})$, $k \in F$:
+\begin{equation*}
+u_{1} \notin U_{3} \implies k(u_{1}+u_{3}) \notin U_{1} \; \land \;  k(u_{1}+u_{3}) \notin U_{3}
+\end{equation*}
+\begin{equation*}
+k(u_{1}+u_{3}) \notin U_{3} \; \land \; U_{2} \subset U_{3} \implies k(u_{1}+u_{3}) \notin U_{2}
+\end{equation*}
+Hence $k(u_{1}+u_{3})$ is not an element of any of the three subspaces $U_{1},U_{2},U_{3}$ and not element of their union $U_{1} \cup U_{2} \cup U_{3}$, Contradiction.
+Now we consider the second case. As with the first case, let $u_{1}$ be any non-zero element of $U_{1}$ and $u_{3}$ be any non-zero element of $U_{3}$. Since $U_{1} \cup U_{2} \cup U_{3}$ is a subspace of $\bm{V}$, it follows that  $k(u_{1}+u_{3}) \in U_{1} \cup U_{2} \cup U_{3} $ , $k \in F$. Since $U_{1} \cap U_{2} \cap U_{3} = \{ \bm{0} \}$, $u_{1}$ is not an element of $U_{2}$ or $U_{3}$. Similarly, $u_{3}$ is not element of $U_{1}$ or $U_{2}$. It follows that their sum $u_{1}+u_{3}$ is not element of any of the subspaces $U_{1}$ or $U_{2}$ or $U_{3}$. Thus $u_{1}+u_{3}$ is not not an element of their union $U_{1} \cup U_{2} \cup U_{3}$, Contradiction.
+\\ ($\Leftarrow$) \\
+To prove the backwards statement, we assume $U_{1}$, $U_{2}$ to be subsets of $U_{3}$. The existence of the additive inverse is trivially satisfied, since it exists in all of the three subspaces. Any element of $U_{1}$ or $U_{2}$ exists in $U_{3}$, which is a subspace. This ensure the closure of  $U_{1} \cup U_{2} \cup U_{3}$. Hence $U_{1} \cup U_{2} \cup U_{3}$ is a subspace of $\bm{V}$.
+\end{proof}
+\item[19] Counter example: Let $\bm{V} = \mathbb{R}^{2},\; U_{1}=\{(a,0): a \in \mathbb{R}\},\; U_{2}=\{(0,b): b \in \mathbb{R}\}\;, W = \{ (a,b): a,b \in \mathbb{R} \}$. We can easily see that $U_{1}+W = U_{2}+W$, but $U_{1} \neq U_{2}$.
+\item[21]$W = \{ (0,0,a,b,c):a,b,c \in \bm{F}^{5}\}$
+\end{enumerate}
+\section*{EXERCISES 2.A}
+\begin{enumerate}
+\item[6]
+\begin{proof}
+Since the vectors $\bm{v_1,v_2.v_3,v_4}$ are linearly independent. We can choose any scalars $a_1,a_2,a_3,a_4$ in $\bm{F}$ such that the only solution to the equations is $\sum_{i=1}^{4}a_{i}\bm{v_i}$ is the trivial solution. By setting $a_{2} = a_{1} - a_{2},\; a_{3}= a_{3} - a_{2},\; a_{4} = a_{4}-a_{3}$ we get the same equation but for the new vectors. It follows that if we solve their corresponding system of equations and we get the trivial solution, then the vectors are linearly independent. it is easy to check that the system: $a_{1}=0, a_{1}-a_{2} = 0$, $a_{3}-a_{2}=0$, $a_{4}-a_{3}=0$ has the trivial solution, thus the vectors are linearly independent. 
+\end{proof}
+\item[9]The statement is false. Consider the following counter example in $\mathbb{P}_{m}(\bm{F})$ : the lists $1,x,x^2,..,x^m$ , $-1,-x,-x^2,...,-x^m$ are both linearly independent but if we sum both lists we get the following linearly dependent list $0,0,0,...,0$.
+\item[11]
+\begin{proof}
+($\Rightarrow$)\\ Suppose the list $\bm{w}$,$\bm{v_{1}}$,....,$\bm{v_{m}}$ is linearly independent. It follows that the only solution to the equation $a_{0}\bm{w}$+$a_{1}\bm{v_{1}}$+....+$a_{m}\bm{v_{m}} = 0$ is the trivial solution $a_{i}=0$. It follows that the equation $\bm{w} = b_{1}\bm{v_{1}} + .... + b_{m}\bm{v_{m}}$ does not have any solutions in $\bm{F}$. Thus $w \not \in span(\bm{v_{1}},...,\bm{v_{m}})$ . \\
+($\Leftarrow$) Since $w \not \in span(\bm{w},\bm{v_{1}},....,\bm{v_{m}})$, it follows from the Linear Dependence Lemma that list is not linearly dependent.  
+\end{proof}
+\item[14]
+\begin{proof}
+($\Rightarrow$) Since $\bm{V}$ is infinite-dimensional, it cannot be spanned by a list of vectors $\bm{v_{1}},\bm{v_{2}},....,\bm{v_{m}}$  ,  $m \in \mathbb{N}$. We want to prove that for every choice of $m$ we can construct a list of linear independent vectors. We induct on $m$. At m=1: trivially, the list containing only one vector is linearly independent. Now suppose we have a list $\bm{v_{1}},\bm{v_{2}},....,\bm{v_{k}}$ in $\bm{V}$ of linearly independent vectors. We now need to prove that we can construct a linear independent list $\bm{v_{1}},\bm{v_{2}},....,\bm{v_{k}},\bm{v_{k+1}}$, where $\bm{v_{k+1}} \in \bm{V}$. Since the list  $\bm{v_{1}},\bm{v_{2}},....,\bm{v_{k}}$ does not span the space, there exist a vector $v_{k+1} \in \bm{V}$ such that $v_{k+1} \not \in span(v_{1},..,v_{k})$. It follows from the Linear Dependence Lemma that the list $\bm{v_{2}},....,\bm{v_{k}},\bm{v_{k+1}}$ is not linearly dependent. \\ ($\Leftarrow$) Suppose we can always construct a linear independent list of vectors $\bm{v_{1},...,\bm{v_{m}}}$ in $\bm{V}$ for every choice of $m \in \mathbb{N}$. For the sake of contradiction, suppose $\bm{V}$ is finite-dimensional. Thus $\bm{V}$ is spanned by a list of vectors $\bm{v_{1},....,\bm{v_k}},\; k \in \mathbb{N}$. Choosing m=k+1, we can construct the following linear independent list in $\bm{V}$: $\bm{v_1,...,v_k,v_{k+1}}$. It follows that $\bm{v_{k+1}} \not \in span(\bm{v_1},....,\bm{v_k})$, but we know that $v_{k+1} \in \bm{V}$ which contradicts our assumption that the list $\bm{v_1},....,\bm{v_k}$ spans $\bm{V}$.
+\end{proof}
+\end{enumerate}
+\section*{EXERCISES 2.B}
+\begin{enumerate}
+\item[3]The following lists is a basis of $U$: $(3x_2,x_2,0,0,0),(0,0,7x_4,x_4,0),(0,0,0,0,x_5)$. To extend this list to a basis of $\mathbb{R}^5$, we use the algorithm in 2.33. We start with the list:
+\begin{equation*}
+\omega = \{(x_1,0,0,0,0),(0,x_2,0,0,0),(0,0,x_3,0,0),(0,0,0,x_4,0),(0,0,0,0,x_5),(3x_2,x_2,0,0,0),(0,0,7x_4,x_4,0)\}
+\end{equation*}
+$\omega$ trivially spans $\mathbb{R}^5$, we can see that the last two vectors are in the span of the first five vectors. Removing those two vectors, we are left with the standard basis of $\mathbb{R}^5$. Take $W = \{ (0,y_1,0,y_2,0) \in \mathbb{R}^5 \}$. $U+W = \{ {(3x_2,x_2+y_1,7x_4,x_4+y_2,x_5) \in \mathbb{R}^5} \} = \mathbb{R}^5$. We can easily see that $U \cap W = \emptyset$. Hence, we deduce that $W$ is a subspace of $\mathbb{R}^5$ such that $U \oplus W = \mathbb{R}^5$.
+\item[5]
+The list $(1,x,x^2+x^3,x^3)$ is a basis for $\mathcal{P}_3(\bm{F})$, such that $Deg(p_j) \neq 2$.
+\item[8]
+\begin{proof}
+Since $V = U \oplus W$, it follows that the list $u_1,...,u_m,w_1,...,w_n$ is linearly independent. Let the list $v_1,....,v_k$ be a basis for $V$. We use the process in 2.33. We start with the list:
+\begin{equation*}
+u_1,...,u_m,w_1,...,w_n,v_1,....,v_k
+\end{equation*}
+But, we know that every $v \in V$ can be written as a sum of two vectors, one in $U$ and one in $W$. It follows that $v_{j} \in span(u_1,..,u_m,w_1,....,w_n,v_1,..,v_{j-1})$ for every $j$. At step $j$, we are left with the linearly independent list $u_1,...,u_m,w_1,...,w_n$. Hence, $u_1,...,u_m,w_1,...,w_n$ is a basis of $V$.
+\end{proof}
+\end{enumerate}
+\section*{EXERCISES 2.C}
+\begin{enumerate}
+\item[1]
+\begin{proof}
+Let $v_1,....,v_m$ be a basis of $\bm{V}$, i.e $dim(V)=m$. Let $u_1,....,u_m$ be a basis of $\bm{U}$. Trivially, the list $u_1,...,u_m$ is in $\bm{V}$ and is linearly independent. Thus, by 2.39, the list $u_1,...,u_2$ forms a basis for $\bm{V}$. Hence $\bm{U} = span(u_1,...,u_m) = \bm{V}$
+\end{proof}
+\item[2]
+Given any subspace of $\mathbb{R}^2$, $U$. We know that $dim(U) \leq 2$. At $dim(U) = 2$, from the result of above exercise, $U = \mathbb{R}^2$. At $dim(U) = 1$, let $u_1 = (a,b): a,b \in \mathbb{R}$ be a basis for $U$. It follows that for any $u \in U$, $u = c_1(a,b): c_1 \in R$. Scaling $(a,b)$ for any real number $c_1$ will get us any line that passes through the origin ($c_1 = 0$). At $dim(U) = 0$, by definition $U = \{ 0 \}$.
+\item[4]
+\begin{enumerate}
+\item[(a)] The list $z-6, z^2-36, z^3-316,z^4-1296$ clearly forms a basis for $U$.
+\item[(b)] Using the process in (2.33), we can generate the following list: $1,z-6,z^2-36,z^3-216, z^4-1296$, which forms a basis for $\mathcal{P}_4(F)$.
+\item[(c)] It is easy to check that $W = \{c:c \in F \}$ is a subspace of $\mathcal{P}_4(F)$ such that $U \oplus W = \mathcal{P}_4(F)$.
+\end{enumerate}
+\item[9]
+\begin{proof}
+We will consider two cases: 1- $w \in span(v_1,...,v_m)$ \; 2- $w \not \in span(v_1,...,v_m)$. In the first case we easily check that the list $v_1 + w,.....,v_m + w$ is not linearly independent (Since $w$ is linear combination of $v_1,...,v_m$). Hence, we can reduce this list to a linear independent list with dimension $m-1$ that is equal to $span(v_1+w,...,v_m +w)$. In other words, $dim\; span(v_1+w,....,v_m+w) = m-1$. In the second case, the list $v_1,....,v_m,w$ is linearly independent. It follows that the list $v_1+w,....,v_m+w$ is linearly independent. In other words, $dim\; span(v_1+w,....,v_m+w) = m$. Taking both results, we can conclude that $dim\; span(v_1+w,....,v_m+w) \geq m-1$.
+\end{proof}
+\item[11]
+\begin{proof}
+Since $U + W = \mathbb{R}^8$, it follows that $dim\;U+W = dim \; \mathbb{R}^8 = 8 $. Using our result in 2.43, we can easily prove that $dim \; U \cap W = 0$. Hence, using our result in 1.45, $U+W$ is a direct sum equal to $\mathbb{R}^8$.
+\end{proof}
+\item[12]
+\begin{proof}
+For the sake of contradiction, let $U \oplus W = \mathbb{R}^9$. It follows from 2.43, $dim \; U \oplus W = 5 + 5 - dim \; U \cap W = 9$. We get $dim\; U \cap W = -1$. Contradiction. Hence from 1.45, $U \cap W \neq 0$.
+\end{proof}
+\item[13]
+\begin{proof}
+We know that $dim\; U \cap W = dim\; U + dim\; W - dim\; U+W$. Since $U+W \subseteq \mathbb{C}^6$, it follows that $dim\; U+W \leq 6$. Combining the two inequalities:
+\begin{equation*}
+dim\; U+W = 4+4-dim\;U \cap W \leq 6 \implies dim \; U \cap W \geq 2.
+\end{equation*}
+Since $dim\; U \cap W \geq 2$, we can find two linearly independent vectors in $U \cap W$.
+\end{proof}
+\item[14]
+
+
+\end{enumerate}
+\end{document}
